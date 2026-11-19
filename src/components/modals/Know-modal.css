@@ -1,0 +1,128 @@
+
+/* Overlay */
+.know-overlay {
+  animation: knowOverlayIn 0.3s ease both;
+}
+
+/* Modal */
+.know-modal {
+  animation: knowModalIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Heading */
+.know-heading {
+  opacity: 0;
+  animation: knowContentIn 0.55s ease 0.15s forwards;
+}
+
+/* Skill cards */
+.know-skill-item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: knowCardIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.know-skill-item:hover {
+  border-color: rgba(96, 153, 102, 0.4);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Category icons */
+.know-skill-icon {
+  transition: transform 0.3s ease;
+}
+
+.know-skill-item:hover .know-skill-icon {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+/* Skill tags */
+.know-skill-tag {
+  opacity: 0;
+  transform: translateY(8px) scale(0.94);
+  animation: knowTagIn 0.4s ease forwards;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.know-skill-tag:hover {
+  background: #DCE6C4;
+  transform: translateY(-2px);
+}
+
+/* Close button */
+.know-close {
+  transition: background 0.25s ease, transform 0.3s ease;
+}
+
+.know-close:hover {
+  transform: rotate(90deg);
+}
+
+/* Keyframes */
+@keyframes knowOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes knowModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes knowContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes knowCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes knowTagIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .know-overlay,
+  .know-modal,
+  .know-heading,
+  .know-skill-item,
+  .know-skill-tag {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

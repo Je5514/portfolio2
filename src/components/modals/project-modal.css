@@ -1,0 +1,176 @@
+
+/* Overlay */
+.project-overlay {
+  animation: projectOverlayIn 0.3s ease both;
+}
+
+/* Main modal */
+.project-modal-container {
+  animation: projectModalIn 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Header */
+.project-modal-header {
+  animation: projectHeaderIn 0.5s ease 0.15s both;
+}
+
+/* Heading */
+.project-heading {
+  opacity: 0;
+  animation: projectContentIn 0.5s ease 0.2s forwards;
+}
+
+/* Project cards */
+.project-modal-item {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: projectCardIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.project-modal-item:hover {
+  border-color: rgba(96, 153, 102, 0.4);
+}
+
+/* Project images */
+.project-image {
+  overflow: hidden;
+}
+
+.project-image-content {
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.project-modal-item:hover .project-image-content {
+  transform: scale(1.035);
+}
+
+/* Contribution content */
+.project-info-block {
+  animation: projectContentIn 0.5s ease both;
+}
+
+/* Technology tags */
+.project-tech {
+  opacity: 0;
+  transform: translateY(8px) scale(0.95);
+  animation: projectTechIn 0.4s ease forwards;
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.project-tech:hover {
+  background: #DCE6C4;
+  transform: translateY(-2px);
+}
+
+/* External link */
+.project-link {
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.project-link:hover {
+  transform: translateY(-3px) rotate(5deg);
+}
+
+/* Close button */
+.project-close {
+  transition:
+    background 0.25s ease,
+    transform 0.3s ease;
+}
+
+.project-close:hover {
+  transform: rotate(90deg);
+}
+
+/* Scrollbar */
+.project-modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #A5B39A transparent;
+}
+
+/* Keyframes */
+@keyframes projectOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes projectModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes projectHeaderIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes projectContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes projectCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes projectTechIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .project-overlay,
+  .project-modal-container,
+  .project-modal-header,
+  .project-heading,
+  .project-modal-item,
+  .project-info-block,
+  .project-tech {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+
+  .project-image-content {
+    transition: none;
+  }
+}

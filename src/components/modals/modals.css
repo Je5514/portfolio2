@@ -1,0 +1,226 @@
+@keyframes detailModalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.detail-modal {
+  animation: detailModalEnter 0.35s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-modal {
+    animation: none;
+  }
+}
+
+/* Experience modal  */
+
+@keyframes experienceModalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes experienceTimelineReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.experience-modal {
+  animation: experienceModalEnter 0.35s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.experience-timeline-item {
+  opacity: 0;
+  animation: experienceTimelineReveal 0.5s
+    cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.experience-timeline-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-modal,
+  .experience-timeline-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+
+/* know modal */
+
+@keyframes knowModalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes knowSkillReveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.know-modal {
+  animation: knowModalEnter 0.35s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.know-skill-item {
+  opacity: 0;
+  animation: knowSkillReveal 0.45s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .know-modal,
+  .know-skill-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* project */
+
+@keyframes projectModalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes projectItemReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-modal {
+  animation: projectModalEnter 0.35s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.project-modal-item {
+  opacity: 0;
+  animation: projectItemReveal 0.5s ease-out forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-modal,
+  .project-modal-item {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.project-modal-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: #9dbd8d transparent;
+}
+
+.project-modal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.project-modal-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  margin-block: 22px;
+}
+
+.project-modal-scroll::-webkit-scrollbar-thumb {
+  background: #9dbd8d;
+  border-radius: 20px;
+}
+
+.project-modal-scroll::-webkit-scrollbar-thumb:hover {
+  background: #609966;
+}
+
+/* contact */
+
+@keyframes contactModalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.contact-modal {
+  animation: contactModalEnter 0.35s
+    cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-modal {
+    animation: none;
+  }
+}
+
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 20;
+  cursor: pointer;
+  pointer-events: auto;
+  transition: background 0.25s ease, transform 0.3s ease;
+}
+
+.close:hover {
+  transform: rotate(90deg);
+}

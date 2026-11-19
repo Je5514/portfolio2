@@ -1,0 +1,124 @@
+
+/* Overlay animation */
+.detail-overlay {
+  animation: detailOverlayIn 0.3s ease both;
+}
+
+/* Modal entrance */
+.detail-modal {
+  animation: detailModalIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Profile image */
+.detail-image {
+  opacity: 0;
+  animation: detailImageIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
+}
+
+/* Introduction */
+.detail-intro {
+  opacity: 0;
+  animation: detailContentIn 0.55s ease 0.2s forwards;
+}
+
+/* Divider */
+.detail-divider {
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: detailDividerIn 0.6s ease 0.3s forwards;
+}
+
+/* Details */
+.detail-item {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: detailContentIn 0.5s ease forwards;
+}
+
+/* Interests section */
+.detail-interests {
+  opacity: 0;
+  animation: detailContentIn 0.5s ease 0.55s forwards;
+}
+
+/* Individual interest tags */
+.detail-interest {
+  opacity: 0;
+  transform: translateY(10px) scale(0.95);
+  animation: detailInterestIn 0.4s ease forwards;
+}
+
+/* Close button */
+.detail-close {
+  transition: background 0.25s ease, transform 0.3s ease;
+}
+
+.detail-close:hover {
+  transform: rotate(90deg);
+}
+
+/* Keyframes */
+@keyframes detailOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes detailModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes detailImageIn {
+  from {
+    opacity: 0;
+    transform: scale(0.85) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes detailContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes detailDividerIn {
+  to { transform: scaleX(1); }
+}
+
+@keyframes detailInterestIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .detail-overlay,
+  .detail-modal,
+  .detail-image,
+  .detail-intro,
+  .detail-divider,
+  .detail-item,
+  .detail-interests,
+  .detail-interest {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}

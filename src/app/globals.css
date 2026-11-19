@@ -1,0 +1,392 @@
+@import "tailwindcss";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background-color: #EDF1D6;
+  /* background-image: radial-gradient(
+    circle,
+    #40513B 1px,
+    transparent 1px
+  );
+  background-size: 49px 49px; */
+  background-image:
+    radial-gradient(circle, #40513B 1px, transparent 1px),
+    url("/bg.png");
+
+  background-size:
+    49px 49px,
+    cover;
+
+  background-position:
+    2px 1px,
+    center;
+
+  background-repeat:
+    repeat,
+    no-repeat;
+}
+
+/* who am i image animation  */
+@keyframes profileImageReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(35px) scale(0.85);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.03);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.profile-image-enter {
+  animation: profileImageReveal 1s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.2s;
+}
+
+/* Chip entrance animation */
+@keyframes chip-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(25px) scale(0.7) rotate(0deg);
+  }
+
+  70% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.05) rotate(var(--rotation));
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1) rotate(var(--rotation));
+  }
+}
+
+.chip-float {
+  opacity: 0;
+  transform-origin: center;
+  animation: chip-enter 850ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity;
+}
+
+/* Fixed rotation + staggered entrance */
+.chip-research {
+  --rotation: -8deg;
+  animation-delay: 300ms;
+}
+
+.chip-prototype {
+  --rotation: 7deg;
+  animation-delay: 550ms;
+}
+
+.chip-wireframe {
+  --rotation: -5deg;
+  animation-delay: 800ms;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .chip-float {
+    animation: none;
+    opacity: 1;
+    transform: rotate(var(--rotation));
+  }
+}
+
+.font-bitcount {
+  font-family: "Bitcount Single", sans-serif;
+  font-weight: 500;
+}
+
+
+
+/* 1. Timeline draws once */
+@keyframes draw-line {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.experience-line {
+  transform-origin: top;
+  animation: draw-line 1s ease-out both;
+}
+
+/* 2. Timeline circles appear */
+@keyframes node-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.experience-node {
+  animation: node-appear 0.5s ease-out both;
+}
+
+.experience-node:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.experience-node:nth-child(2) {
+  animation-delay: 0.6s;
+}
+
+.experience-node:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/* 3. Company and date appear */
+@keyframes text-enter {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.experience-info {
+  animation: text-enter 0.7s ease-out 0.3s both;
+}
+
+.experience-date {
+  animation: text-enter 0.7s ease-out 0.5s both;
+}
+
+/* 4. Green bars expand */
+@keyframes bar-enter {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+.experience-bar {
+  transform-origin: left;
+  animation: bar-enter 0.8s ease-out both;
+  transition: filter 300ms ease;
+}
+
+/* Stagger green bars */
+.experience-bar:nth-child(1) {
+  animation-delay: 0.7s;
+}
+
+.experience-bar:nth-child(2) {
+  animation-delay: 1s;
+}
+
+.experience-bar:nth-child(3) {
+  animation-delay: 1.3s;
+}
+
+/* 5. Gentle pulse on first timeline circle */
+@keyframes node-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(64, 81, 59, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 5px rgba(64, 81, 59, 0.12);
+  }
+}
+
+.experience-node:first-child {
+  animation:
+    node-appear 0.5s ease-out 0.2s both,
+    node-pulse 4s ease-in-out 2s infinite;
+}
+
+/* 6. Hover effect */
+.group:hover .experience-bar {
+  filter: brightness(1.08);
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .experience-line,
+  .experience-node,
+  .experience-info,
+  .experience-date,
+  .experience-bar {
+    animation: none !important;
+  }
+}
+
+
+/* what i know animation  */
+@keyframes skillBoxReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.skill-box {
+  opacity: 0;
+  animation: skillBoxReveal 0.6s ease-out forwards;
+  will-change: transform, opacity;
+}
+
+/* PROJECT animation */
+@keyframes cardImageEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-item {
+  animation: cardImageEnter 0.8s ease both;
+}
+
+.project-item:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.project-item:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+/* CONTACT animation */
+@keyframes contactEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-email {
+  animation: contactEnter 0.7s ease 0.2s both;
+}
+
+.contact-item {
+  animation: contactEnter 0.7s ease both;
+}
+
+.contact-item:nth-child(1) {
+  animation-delay: 0.4s;
+}
+
+.contact-item:nth-child(2) {
+  animation-delay: 0.55s;
+}
+
+.contact-item:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+.contact-item:nth-child(4) {
+  animation-delay: 0.85s;
+}
+
+.contact-item:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.contact-item:nth-child(6) {
+  animation-delay: 1.15s;
+}
+
+
+
+/* ========================================
+   CUSTOM PORTFOLIO SCROLLBAR
+======================================== */
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #9DBD8D #EDF1D6;
+}
+
+/* Chrome, Safari, Edge */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: #EDF1D6;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9DBD8D;
+  border: 2px solid #EDF1D6;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #60996A;
+}
+
+::-webkit-scrollbar-corner {
+  background: #EDF1D6;
+}
+
+
+/* Modal scrollbar */
+.detail-modal::-webkit-scrollbar,
+.contact-modal::-webkit-scrollbar {
+  width: 7px;
+}
+
+.detail-modal::-webkit-scrollbar-track,
+.contact-modal::-webkit-scrollbar-track {
+  background: #F5F4E9;
+  border-radius: 20px;
+}
+
+.detail-modal::-webkit-scrollbar-thumb,
+.contact-modal::-webkit-scrollbar-thumb {
+  background: #9DBD8D;
+  border: 2px solid #F5F4E9;
+  border-radius: 20px;
+}
+
+.detail-modal::-webkit-scrollbar-thumb:hover,
+.contact-modal::-webkit-scrollbar-thumb:hover {
+  background: #60996A;
+}
+
+

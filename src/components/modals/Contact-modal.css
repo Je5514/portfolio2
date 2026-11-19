@@ -1,0 +1,150 @@
+
+/* Overlay */
+.contact-overlay {
+  animation: contactOverlayIn 0.3s ease both;
+}
+
+/* Main modal */
+.contact-modal {
+  animation: contactModalIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Heading */
+.contact-heading {
+  opacity: 0;
+  animation: contactContentIn 0.5s ease 0.15s forwards;
+}
+
+/* Email card */
+.contact-email {
+  opacity: 0;
+  transform: translateY(18px);
+  animation: contactCardIn 0.55s ease 0.3s forwards;
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.contact-email:hover {
+  border-color: rgba(96, 153, 102, 0.4);
+}
+
+/* Email icon */
+.contact-email-icon {
+  transition: transform 0.3s ease;
+}
+
+.contact-email:hover .contact-email-icon {
+  transform: scale(1.08);
+}
+
+/* Copy button */
+.contact-copy {
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.contact-copy:hover {
+  transform: scale(1.08);
+}
+
+/* Social section */
+.contact-social {
+  opacity: 0;
+  animation: contactContentIn 0.5s ease 0.4s forwards;
+}
+
+/* Social items */
+.contact-social-item {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: contactCardIn 0.5s ease forwards;
+}
+
+.contact-social-item:hover {
+  border-color: rgba(96, 153, 102, 0.4);
+  transform: translateX(4px);
+}
+
+/* Social icons */
+.contact-social-icon {
+  transition: transform 0.3s ease;
+}
+
+.contact-social-item:hover .contact-social-icon {
+  transform: rotate(-8deg) scale(1.08);
+}
+
+/* External link icon */
+.contact-external {
+  transition: transform 0.3s ease;
+}
+
+.contact-social-item:hover .contact-external {
+  transform: translate(2px, -2px);
+}
+
+/* Close button */
+.contact-close {
+  transition:
+    background 0.25s ease,
+    transform 0.3s ease;
+}
+
+.contact-close:hover {
+  transform: rotate(90deg);
+}
+
+/* Keyframes */
+@keyframes contactOverlayIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes contactModalIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes contactContentIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contactCardIn {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .contact-overlay,
+  .contact-modal,
+  .contact-heading,
+  .contact-email,
+  .contact-social,
+  .contact-social-item {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
