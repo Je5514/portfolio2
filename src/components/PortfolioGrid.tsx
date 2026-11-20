@@ -19,6 +19,7 @@ import KnowModal from "./modals/Knowmodal";
 
 import ProjectModal from "./modals/ProjectModal";
 import { projectDetails } from "../data/projects";
+import { projectIcons, defaultProjectIcon } from "../data/projectIcons";
 
 import ContactModal from "./modals/ContactModal";
 
@@ -201,34 +202,43 @@ export default function PortfolioGrid() {
               <button
                 type="button"
                 onClick={() => setShowProjectModal(true)}
-                aria-label="Read more about me"
-              > 
-                <div className="flex flex-1 flex-col justify-between px-7 py-4">
-                  <div className="grid flex-1 grid-cols-1 md:grid-cols-2 gap-5">
-                    {[
-                      { src: "/project1.png", color: "bg-[#EDF1D6]" },
-                      { src: "/project1.png", color: "bg-[#9DBD8D]" },
-                    ].map((project, index) => (
-                      <div
-                        key={index}
-                        style={{ animationDelay: `${index * 0.2}s` }}
-                        className={`project-item group flex items-center justify-center rounded-[24px] p-2 ${project.color}`}
-                      >
-                        <div className="h-full min-h-[150px] w-full overflow-hidden rounded-[22px]">
-                          <img
-                            src={project.src}
-                            alt={`Project ${index + 1}`}
-                            className="h-full w-full rounded-[20px] object-cover transition-transform duration-500 group-hover:scale-105"
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
+                aria-label="View my projects"
+                className="flex h-full w-full flex-col text-left"
+              >
+                <span className="flex h-full w-full flex-1 flex-col justify-between px-5 py-4">
+                  {/* Project list: icon + title + one line */}
+                  <span className="flex flex-col gap-2">
+                    {projectDetails.map((project, index) => {
+                      const Icon =
+                        projectIcons[project.icon] ?? defaultProjectIcon;
+
+                      return (
+                        <span
+                          key={project.title}
+                          style={{ animationDelay: `${index * 0.2}s` }}
+                          className="project-item group flex items-center gap-4 rounded-2xl px-3 py-3 transition-colors duration-300 hover:bg-[#F3F6E7]"
+                        >
+                          <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-[14px] bg-[#EDF1D6] text-[#40513B] transition-colors duration-300 group-hover:bg-[#DDE8C6]">
+                            <Icon size={22} strokeWidth={1.8} />
+                          </span>
+
+                          <span className="min-w-0 flex-1">
+                            <span className="block truncate text-[16px] font-semibold text-[#40513B]">
+                              {project.title}
+                            </span>
+                            <span className="mt-0.5 block truncate text-[13px] text-[#65715D]">
+                              {project.summary}
+                            </span>
+                          </span>
+                        </span>
+                      );
+                    })}
+                  </span>
 
                   <h2 className="font-bitcount pt-5 text-center text-[20px] font-black text-[#40513B]">
                     {projects.title}
                   </h2>
-                </div>
+                </span>
               </button>
             </BrowserCard>
 

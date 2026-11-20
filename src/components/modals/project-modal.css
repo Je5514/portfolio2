@@ -1,4 +1,3 @@
-
 /* Overlay */
 .project-overlay {
   animation: projectOverlayIn 0.3s ease both;
@@ -25,31 +24,19 @@
   opacity: 0;
   transform: translateY(25px);
   animation: projectCardIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  transition:
-    border-color 0.3s ease,
-    background 0.3s ease;
 }
 
-.project-modal-item:hover {
-  border-color: rgba(96, 153, 102, 0.4);
+/* Icon tile + arrow react to card hover */
+.project-icon {
+  transition: background 0.3s ease;
 }
 
-/* Project images */
-.project-image {
-  overflow: hidden;
+.project-card:hover .project-icon {
+  background: #dde8c6;
 }
 
-.project-image-content {
-  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.project-modal-item:hover .project-image-content {
-  transform: scale(1.035);
-}
-
-/* Contribution content */
-.project-info-block {
-  animation: projectContentIn 0.5s ease both;
+.project-card:hover .project-arrow {
+  transform: translate(2px, -2px);
 }
 
 /* Technology tags */
@@ -63,19 +50,8 @@
 }
 
 .project-tech:hover {
-  background: #DCE6C4;
+  background: #dce6c4;
   transform: translateY(-2px);
-}
-
-/* External link */
-.project-link {
-  transition:
-    background 0.25s ease,
-    transform 0.25s ease;
-}
-
-.project-link:hover {
-  transform: translateY(-3px) rotate(5deg);
 }
 
 /* Close button */
@@ -92,7 +68,7 @@
 /* Scrollbar */
 .project-modal-scroll {
   scrollbar-width: thin;
-  scrollbar-color: #A5B39A transparent;
+  scrollbar-color: #a5b39a transparent;
 }
 
 /* Keyframes */
@@ -163,14 +139,9 @@
   .project-modal-header,
   .project-heading,
   .project-modal-item,
-  .project-info-block,
   .project-tech {
     animation: none !important;
     opacity: 1;
     transform: none;
-  }
-
-  .project-image-content {
-    transition: none;
   }
 }
