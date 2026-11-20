@@ -128,7 +128,7 @@ export default function DetailModal({
         {interests.length > 0 && (
           <div className="detail-interests mt-10">
             <h3 className="mb-6 text-[15px] font-bold tracking-[1.5px] text-[#52654D]">
-              INTERESTS
+              Role
             </h3>
 
             <div className="flex flex-wrap gap-2.5">

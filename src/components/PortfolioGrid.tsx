@@ -8,7 +8,7 @@ import BrowserCard from "./BrowserCard";
 import PortfolioIntro from "./PortfolioIntro";
 
 import { Shapes, GitBranch, Code2 } from "lucide-react";
-import { Copy, Check, Box, Mail } from "lucide-react";
+import { Box, Mail } from "lucide-react";
 import { FaLinkedinIn, FaBehance } from "react-icons/fa6";
 
 import AboutModal from "./modals/AboutModal";
@@ -21,7 +21,11 @@ import ProjectModal from "./modals/ProjectModal";
 import { projectDetails } from "../data/projects";
 import { projectIcons, defaultProjectIcon } from "../data/projectIcons";
 
+import { experienceData } from "../data/experience";
+
 import ContactModal from "./modals/ContactModal";
+
+import { useLockBodyScroll } from "../hook/useLockBodyScroll";
 
 const socialIcons: Record<string, React.ElementType> = {
   linkedin: FaLinkedinIn,
@@ -30,33 +34,29 @@ const socialIcons: Record<string, React.ElementType> = {
   mail: Mail,
 };
 
-const skillIcons = {
-  figma: Shapes,
-  "git-branch": GitBranch,
-  code: Code2,
-};
-
-const skillColors = [
-  "bg-[#9DBD8D] text-[#40513B]",
-  "bg-white text-[#40513B] border-[#40513B]",
-  "bg-[#60996A] text-white",
-  "bg-white text-[#40513B] border-[#40513B]",
-  "bg-[#40513B] text-white",
-  "bg-white text-[#40513B] border-[#40513B]",
-];
-
 export default function PortfolioGrid() {
   const { about, experience, skills, projects, contact } = portfolioData;
+
   const [showAboutModal, setShowAboutModal] = useState(false);
   const [showExperienceModal, setShowExperienceModal] = useState(false);
   const [showKnowModal, setShowKnowModal] = useState(false);
   const [showProjectModal, setShowProjectModal] = useState(false);
   const [showContactModal, setShowContactModal] = useState(false);
 
+  const isAnyModalOpen =
+    showAboutModal ||
+    showExperienceModal ||
+    showKnowModal ||
+    showProjectModal ||
+    showContactModal;
+
+  // Block body scroll while any modal is open
+  useLockBodyScroll(isAnyModalOpen);
+
   return (
     <>
       <PortfolioIntro>
-        <main className="mx-auto flex min-h-screen w-full max-w-[1050px] items-center px-5 py-8">
+        <main className="mx-auto flex min-h-screen w-full max-w-[1050px] items-center px-5 py-12 md:py-8">
           <div className="grid w-full grid-cols-1 gap-7 md:grid-cols-3">
             {/* WHO I AM */}
             <BrowserCard title={about.title} className="h-[312px]">
@@ -88,7 +88,7 @@ export default function PortfolioGrid() {
                   </span>
                 </div>
 
-                <h2 className="font-bitcount mt-1 text-[20px] font-black text-[#40513B]">
+                <h2 className="card-title mt-1 text-[20px] font-black text-[#40513B]">
                   {about.title}
                 </h2>
               </button>
@@ -99,48 +99,47 @@ export default function PortfolioGrid() {
               <button
                 type="button"
                 onClick={() => setShowExperienceModal(true)}
-                aria-label="Read more about me"
-                className="flex h-full w-fulltext-left"
+                aria-label="Read more about my experience"
+                className="flex h-full w-full text-left"
               >
                 <div className="flex flex-1 flex-col justify-between px-7 py-4">
-                  <div className="relative flex gap-5">
+                  {/* Timeline */}
+                  <div className="relative">
                     {/* Timeline line */}
-                    <div className="experience-line absolute left-[8px] top-3 h-[140px] w-px bg-[#40513B]" />
+                    <div className="experience-line absolute bottom-3 left-[7px] top-3 w-px bg-[#40513B]" />
 
-                    {/* Timeline circles */}
-                    <div className="relative z-10 flex flex-col gap-[42px]">
-                      <span className="experience-node h-[16px] w-[16px] rounded-full bg-[#40513B]" />
-                      <span className="experience-node h-[16px] w-[16px] rounded-full border-2 border-[#40513B] bg-white" />
-                      <span className="experience-node h-[16px] w-[16px] rounded-full border-2 border-[#40513B] bg-white" />
-                    </div>
-
-                    {/* Experience details */}
-                    <div className="flex-1 pt-0">
-                      <h3 className="text-left experience-info text-[18px] font-medium text-[#40513B]">
-                        {experience.company}
-                      </h3>
-
-                      <p className="text-left experience-date mt-1 text-[12px] text-[#60996A]">
-                        {experience.period}
-                      </p>
-
-                      {/* Detail bars */}
-                      <div className="mt-7 space-y-[14px]">
-                        {experience.details.map((item, index) => (
-                          <div
-                            key={item}
-                            className="experience-bar h-[12px] rounded-full bg-[#9DBD8D]"
-                            style={{
-                              width: ["100%", "58%", "88%"][index] ?? "100%",
-                              animationDelay: `${0.5 + index * 0.3}s`,
-                            }}
+                    <ul className="relative z-10 flex flex-col gap-5">
+                      {experienceData.map((item, index) => (
+                        <li key={item.id} className="flex items-start gap-5">
+                          {/* Node: first one is filled (current), the rest are outlined */}
+                          <span
+                            style={{ animationDelay: `${index * 0.3}s` }}
+                            className={`experience-node mt-1 h-[16px] w-[16px] shrink-0 rounded-full border-2 border-[#40513B] ${index === 0 ? "bg-[#40513B]" : "bg-white"
+                              }`}
                           />
-                        ))}
-                      </div>
-                    </div>
+
+                          {/* Company + period */}
+                          <div className="min-w-0 flex-1">
+                            <h3
+                              style={{ animationDelay: `${0.2 + index * 0.3}s` }}
+                              className="experience-info truncate text-left text-[18px] font-medium leading-tight text-[#40513B]"
+                            >
+                              {item.title}
+                            </h3>
+
+                            <p
+                              style={{ animationDelay: `${0.3 + index * 0.3}s` }}
+                              className="experience-date mt-1 text-left text-[12px] text-[#60996A]"
+                            >
+                              {item.period}
+                            </p>
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
 
-                  <h2 className="font-bitcount text-center text-[20px] font-black text-[#40513B]">
+                  <h2 className="card-title text-center text-[20px] font-black text-[#40513B]">
                     {experience.title}
                   </h2>
                 </div>
@@ -187,7 +186,7 @@ export default function PortfolioGrid() {
                   </div>
 
                   {/* Title at bottom */}
-                  <h2 className="text-center font-bitcount text-[20px] font-black text-[#40513B]">
+                  <h2 className="card-title text-center text-[20px] font-black text-[#40513B]">
                     {skills.title}
                   </h2>
                 </div>
@@ -235,7 +234,7 @@ export default function PortfolioGrid() {
                     })}
                   </span>
 
-                  <h2 className="font-bitcount pt-5 text-center text-[20px] font-black text-[#40513B]">
+                  <h2 className="card-title pt-5 text-center text-[20px] font-black text-[#40513B]">
                     {projects.title}
                   </h2>
                 </span>
@@ -297,7 +296,7 @@ export default function PortfolioGrid() {
                   </div>
 
                   {/* Title at bottom */}
-                  <h2 className="font-bitcount text-center text-[20px] font-black text-[#40513B]">
+                  <h2 className="card-title text-center text-[20px] font-black text-[#40513B]">
                     {contact.title}
                   </h2>
                 </div>

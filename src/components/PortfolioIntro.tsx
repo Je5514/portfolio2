@@ -16,7 +16,7 @@ export default function PortfolioIntro({
 
   useEffect(() => {
     const messages = [
-      "Hi there!",
+      "Hi there ;)",
     //   "Here's my portfolio.",
     ];
 

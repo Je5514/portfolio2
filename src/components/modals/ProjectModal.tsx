@@ -61,7 +61,7 @@ export default function ProjectModal({
               id="project-modal-title"
               className="mt-2 text-2xl font-bold text-[#40513B] sm:text-3xl"
             >
-              Selected Projects
+              Projects
             </h2>
 
             <p className="mt-2 max-w-[560px] text-sm leading-6 text-[#65715D]">

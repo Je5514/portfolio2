@@ -17,25 +17,25 @@ interface ContactModalProps {
   onClose: () => void;
 }
 
-const email = "your.email@example.com";
+const email = "sreelakshminjoshi@gmail.com";
 
 const socialLinks = [
   {
     name: "LinkedIn",
-    username: "Your LinkedIn profile",
-    url: "https://www.linkedin.com/",
+    username: "https://in.linkedin.com/in/sreelakshmi-n-j",
+    url: "https://in.linkedin.com/in/sreelakshmi-n-j",
     icon: FaLinkedinIn,
   },
   {
     name: "GitHub",
-    username: "Your GitHub profile",
-    url: "https://github.com/",
+    username: "https://github.com/Je5514/",
+    url: "https://github.com/Je5514/",
     icon: FaGithub,
   },
   {
     name: "Behance",
-    username: "Your Behance portfolio",
-    url: "https://www.behance.net/",
+    username: "https://www.behance.net/sreelakshmid1",
+    url: "https://www.behance.net/sreelakshmid1",
     icon: FaBehance,
   },
 ];

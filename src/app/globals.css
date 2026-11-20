@@ -12,25 +12,38 @@ body {
     circle,
     #40513B 1px,
     transparent 1px
-  );
-  background-size: 49px 49px; */
-  background-image:
+    );
+    background-size: 49px 49px; */
+    background-image:
     radial-gradient(circle, #40513B 1px, transparent 1px),
     url("/bg.png");
-
-  background-size:
+    
+    background-size:
     49px 49px,
     cover;
-
-  background-position:
+    
+    background-position:
     2px 1px,
     center;
-
-  background-repeat:
+    
+    background-repeat:
     repeat,
     no-repeat;
-}
-
+  }
+  
+  
+  /* Headings: Bytestrone, project titles */
+  .card-title {
+    font-weight: 700;
+  } 
+  
+  /* Section labels at the bottom of each card */
+ h1,h2,h3,h4,h5, p,span {
+    font-family: var(--font-pixelify), monospace;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
 /* who am i image animation  */
 @keyframes profileImageReveal {
   0% {
@@ -102,11 +115,6 @@ body {
     opacity: 1;
     transform: rotate(var(--rotation));
   }
-}
-
-.font-bitcount {
-  font-family: "Bitcount Single", sans-serif;
-  font-weight: 500;
 }
 
 

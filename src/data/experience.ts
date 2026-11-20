@@ -8,12 +8,14 @@ export interface Experience {
   type: "work" | "research";
   description: string;
   responsibilities: string[];
+  title?: string;
 }
 
 export const experienceData: Experience[] = [
   {
     id: 1,
     company: "Bytestrone",
+    title:"Bytestrone",
     period: "2023 – Present",
     role: "UI Engineer",
     type: "work",
@@ -29,6 +31,7 @@ export const experienceData: Experience[] = [
   {
     id: 2,
     company: "White Rabbit Group",
+    title:"WRG",
     period: "2022 – 2023",
     role: "Software Engineer",
     type: "work",
@@ -43,6 +46,7 @@ export const experienceData: Experience[] = [
   {
     id: 3,
     company: "Microsoftware Research",
+    title:"Microsoftware",
     period: "2022 | 4 months",
     role: "Intern",
     type: "research",

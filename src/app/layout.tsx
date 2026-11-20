@@ -1,13 +1,24 @@
 import type { Metadata } from "next";
-import { Bitcount_Single } from "next/font/google";
+import { Pixelify_Sans, Bricolage_Grotesque } from "next/font/google";
 import "./globals.css";
 
 import SageCursor from "../components/SageCursor";
 
-const bitcount = Bitcount_Single({
+// Section labels: WHO I AM, EXPERIENCE, WHAT I KNOW...
+const pixelify = Pixelify_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-pixelify",
+  display: "swap",
+});
+
+// Headings: Bytestrone, Furniture Website...
+const bitcount = Bricolage_Grotesque({
   subsets: ["latin"],
   variable: "--font-bitcount",
+  display: "swap",
 });
+
 
 export const metadata: Metadata = {
   title: "Sreelakshmi | Portfolio",
@@ -21,19 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Bitcount+Single:wght@100..900&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body className={bitcount.variable}>{children}<SageCursor /></body>
+      <body
+        className={`${pixelify.variable} ${bitcount.variable}`}
+      >
+        {children}
+        <SageCursor />
+      </body>
     </html>
   );
 }
