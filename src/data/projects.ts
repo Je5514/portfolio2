@@ -16,7 +16,7 @@ export const projectDetails: Project[] = [
     category: "Application UI Design",
     description:
       "An application for managing assets and organizing asset-related information.",
-    image: "/project2.png",
+    image: "/project1.png",
     contribution:
       "Worked on interface layouts, reusable UI components and user experience.",
     technologies: ["Figma", "UI/UX Design", "Prototyping"],

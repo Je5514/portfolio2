@@ -196,18 +196,18 @@ export default function PortfolioGrid() {
             {/* PROJECT */}
             <BrowserCard
               title={projects.title}
-              className="h-[366px] md:col-span-2"
+              className="h-full md:h-[366px] md:col-span-2"
             >
               <button
                 type="button"
                 onClick={() => setShowProjectModal(true)}
                 aria-label="Read more about me"
-              >
+              > 
                 <div className="flex flex-1 flex-col justify-between px-7 py-4">
-                  <div className="grid flex-1 grid-cols-2 gap-5">
+                  <div className="grid flex-1 grid-cols-1 md:grid-cols-2 gap-5">
                     {[
                       { src: "/project1.png", color: "bg-[#EDF1D6]" },
-                      { src: "/project2.png", color: "bg-[#9DBD8D]" },
+                      { src: "/project1.png", color: "bg-[#9DBD8D]" },
                     ].map((project, index) => (
                       <div
                         key={index}
