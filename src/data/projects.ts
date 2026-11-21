@@ -9,9 +9,9 @@ export const projectDetails: Project[] = [
       "Elegant layouts and curated collections that make finding furniture simple.",
     description:
       "A modern furniture shopping experience featuring elegant layouts, curated collections and a user-friendly interface that makes finding the perfect furniture simple and enjoyable.",
-    technologies: ["Figma", "Next.js", "Tailwind", "TypeScript", "SCSS", "Claude", "ChatGPT"],
+    technologies: ["Figma", "Next.js", "Tailwind", "TypeScript", "Claude", "ChatGPT"],
     // TODO: this is the Skincare URL — replace with the Furniture site link
-    link: "https://je5514.github.io/Skincare-html/",
+    link: "https://furniture-landing1.web.app/",
   },
   {
     title: "Skincare Website",
@@ -34,8 +34,8 @@ export const projectDetails: Project[] = [
     description:
       "An interactive comic reading experience featuring an organized library, engaging layouts and seamless navigation, making it easy for readers to discover and enjoy their favourite stories.",
     // TODO: list the tools you used
-    technologies: ["Figma"],
+    technologies: ["Pug", "SCSS", "JQuery"],
     // TODO: add the live site URL (leave "" for no link; the card then won't be clickable)
-    link: "",
+    link: "https://webmine3.netlify.app/",
   },
 ];

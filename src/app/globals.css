@@ -34,15 +34,21 @@ body {
   
   /* Headings: Bytestrone, project titles */
   .card-title {
+    font-family: var(--font-shantell), system-ui, sans-serif;
     font-weight: 700;
   } 
   
   /* Section labels at the bottom of each card */
- h1,h2,h3,h4,h5, p,span {
-    font-family: var(--font-pixelify), monospace;
-    font-weight: 500;
+ h1,h2,h3,h4,h5 {
+    font-family: var(--font-shantell), system-ui, sans-serif;
+    font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
+  }
+
+  p, span, link, a, ol, ul {
+    font-family: var(--font-shantell), system-ui, sans-serif;
+    font-weight: 500;;
   }
 /* who am i image animation  */
 @keyframes profileImageReveal {

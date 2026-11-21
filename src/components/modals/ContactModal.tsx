@@ -159,7 +159,7 @@ export default function ContactModal({
                     <p className="text-sm font-semibold text-[#344330]">
                       {social.name}
                     </p>
-                    <p className="text-xs text-[#68745E]">
+                    <p className="hidden md:block text-xs text-[#68745E]">
                       {social.username}
                     </p>
                   </div>

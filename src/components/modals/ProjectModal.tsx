@@ -65,8 +65,7 @@ export default function ProjectModal({
             </h2>
 
             <p className="mt-2 max-w-[560px] text-sm leading-6 text-[#65715D]">
-              A collection of projects where I explore design, creativity and
-              frontend development.
+              A collection of simple personal projects where I explore design, creativity, and frontend development.
             </p>
           </div>
         </div>

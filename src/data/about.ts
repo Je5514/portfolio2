@@ -14,7 +14,7 @@ export const aboutDetails: AboutData = {
   name: "Sreelakshmi N J",
 
   description:
-    `I am a Deaf UI Designer and UI Developer passionate about creating intuitive, user-friendly, and visually engaging digital experiences. I enjoy transforming ideas and designs into functional, responsive interfaces, with a strong focus on usability, creativity, and attention to detail.
+    `I am a Deaf UI Engineer passionate about creating intuitive, user-friendly, and visually engaging digital experiences. I enjoy transforming ideas and designs into functional, responsive interfaces, with a strong focus on usability, creativity, and attention to detail.
     As a Deaf individual, I communicate through Indian Sign Language (ISL) and written English. I believe in inclusive communication, accessibility, and creating digital experiences that are accessible to everyone.`,
 
   image: "/sreelakshmi.jpeg",
