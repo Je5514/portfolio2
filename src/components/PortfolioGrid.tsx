@@ -8,8 +8,8 @@ import BrowserCard from "./BrowserCard";
 import PortfolioIntro from "./PortfolioIntro";
 
 import { Shapes, GitBranch, Code2 } from "lucide-react";
-import { Box, Mail } from "lucide-react";
-import { FaLinkedinIn, FaBehance } from "react-icons/fa6";
+import { Mail } from "lucide-react";
+import { FaLinkedinIn, FaBehance, FaGithub } from "react-icons/fa6";
 
 import AboutModal from "./modals/AboutModal";
 import { aboutDetails } from "../data/about";
@@ -30,7 +30,7 @@ import { useLockBodyScroll } from "../hook/useLockBodyScroll";
 const socialIcons: Record<string, React.ElementType> = {
   linkedin: FaLinkedinIn,
   behance: FaBehance,
-  box: Box,
+  github: FaGithub,
   mail: Mail,
 };
 
@@ -56,7 +56,7 @@ export default function PortfolioGrid() {
   return (
     <>
       <PortfolioIntro>
-        <main className="mx-auto flex min-h-screen w-full max-w-[1050px] items-center px-5 py-12 md:py-8">
+        <main className="mx-auto flex min-h-screen w-full max-w-[1050px] items-center px-5 py-6 md:py-8">
           <div className="grid w-full grid-cols-1 gap-7 md:grid-cols-3">
             {/* WHO I AM */}
             <BrowserCard title={about.title} className="h-[312px]">
@@ -88,7 +88,7 @@ export default function PortfolioGrid() {
                   </span>
                 </div>
 
-                <h2 className="card-title mt-1 text-[20px] font-black text-[#40513B]">
+                <h2 className="card-title mt-4 text-[20px] font-black text-[#40513B]">
                   {about.title}
                 </h2>
               </button>
@@ -139,7 +139,7 @@ export default function PortfolioGrid() {
                     </ul>
                   </div>
 
-                  <h2 className="card-title text-center text-[20px] font-black text-[#40513B]">
+                  <h2 className="card-title mt-4 text-center text-[20px] font-black text-[#40513B]">
                     {experience.title}
                   </h2>
                 </div>
@@ -186,7 +186,7 @@ export default function PortfolioGrid() {
                   </div>
 
                   {/* Title at bottom */}
-                  <h2 className="card-title text-center text-[20px] font-black text-[#40513B]">
+                  <h2 className="card-title mt-4 text-center text-[20px] font-black text-[#40513B]">
                     {skills.title}
                   </h2>
                 </div>
@@ -234,7 +234,7 @@ export default function PortfolioGrid() {
                     })}
                   </span>
 
-                  <h2 className="card-title pt-5 text-center text-[20px] font-black text-[#40513B]">
+                  <h2 className="card-title mt-4 text-center text-[20px] font-black text-[#40513B]">
                     {projects.title}
                   </h2>
                 </span>
@@ -242,7 +242,7 @@ export default function PortfolioGrid() {
             </BrowserCard>
 
             {/* CONTACT */}
-            <BrowserCard title={contact.title} className="h-[366px]">
+            <BrowserCard title={contact.title} className="md:h-[366px]">
               <div
                 role="button"
                 tabIndex={0}
@@ -296,7 +296,7 @@ export default function PortfolioGrid() {
                   </div>
 
                   {/* Title at bottom */}
-                  <h2 className="card-title text-center text-[20px] font-black text-[#40513B]">
+                  <h2 className="card-title mt-4 text-center text-[20px] font-black text-[#40513B]">
                     {contact.title}
                   </h2>
                 </div>

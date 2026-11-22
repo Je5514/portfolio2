@@ -1,13 +1,18 @@
 import type { Metadata } from "next";
-import { Shantell_Sans } from "next/font/google";
+import { Gabarito, Bitcount_Single } from "next/font/google";
 import "./globals.css";
 
 import SageCursor from "../components/SageCursor";
 
-const shantell = Shantell_Sans({
+const gabarito = Gabarito({
   subsets: ["latin"],
-  variable: "--font-shantell",
+  variable: "--font-gabarito",
   display: "swap",
+});
+
+const bitcount = Bitcount_Single({
+  subsets: ["latin"],
+  variable: "--font-bitcount",
 });
 
 export const metadata: Metadata = {
@@ -23,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={shantell.variable}
+        className={`${gabarito.variable} ${bitcount.variable}`}
       >
         {children}
         <SageCursor />

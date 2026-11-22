@@ -39,7 +39,7 @@ export const portfolioData = {
     { name: "Behance", icon: "behance", url: "YOUR_BEHANCE_URL" },
     { name: "Empty", icon: "empty", url: "" },
     { name: "Empty", icon: "empty", url: "" },
-    { name: "Projects", icon: "box", url: "YOUR_PROJECT_URL" },
+    { name: "Projects", icon: "github", url: "YOUR_PROJECT_URL" },
     { name: "Email", icon: "mail", url: "mailto:sreelakhminjioshi@gmail.com" },
   ],
   },
