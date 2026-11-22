@@ -45,8 +45,8 @@ export const experienceData: Experience[] = [
   },
   {
     id: 3,
-    company: "Microsoftware Research",
-    title:"Microsoftware",
+    company: "Microsoft Research",
+    title:"Microsoft",
     period: "2022 | 4 months",
     role: "Intern",
     type: "research",
